@@ -10,6 +10,7 @@
 		6001EC81197B4EC300F97011 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6001EC80197B4EC300F97011 /* Foundation.framework */; };
 		6001EC84197B4EC300F97011 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC83197B4EC300F97011 /* main.m */; };
 		6001EC90197B502F00F97011 /* Kitchen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC8F197B502F00F97011 /* Kitchen.m */; };
+		AE2C668A25EDAA7400DC733A /* Pizza.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2C668925EDAA7400DC733A /* Pizza.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		6001EC86197B4EC300F97011 /* PizzaRestaurant-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PizzaRestaurant-Prefix.pch"; sourceTree = "<group>"; };
 		6001EC8E197B502F00F97011 /* Kitchen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kitchen.h; sourceTree = "<group>"; };
 		6001EC8F197B502F00F97011 /* Kitchen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kitchen.m; sourceTree = "<group>"; };
+		AE2C668825EDAA7400DC733A /* Pizza.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pizza.h; sourceTree = "<group>"; };
+		AE2C668925EDAA7400DC733A /* Pizza.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pizza.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +51,7 @@
 		6001EC74197B4EC300F97011 = {
 			isa = PBXGroup;
 			children = (
+				AE2C668C25EDAA7900DC733A /* Pizza */,
 				6001EC82197B4EC300F97011 /* PizzaRestaurant */,
 				6001EC7F197B4EC300F97011 /* Frameworks */,
 				6001EC7E197B4EC300F97011 /* Products */,
@@ -87,6 +91,16 @@
 				6001EC86197B4EC300F97011 /* PizzaRestaurant-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AE2C668C25EDAA7900DC733A /* Pizza */ = {
+			isa = PBXGroup;
+			children = (
+				AE2C668825EDAA7400DC733A /* Pizza.h */,
+				AE2C668925EDAA7400DC733A /* Pizza.m */,
+			);
+			name = Pizza;
+			path = PizzaRestaurant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE2C668A25EDAA7400DC733A /* Pizza.m in Sources */,
 				6001EC90197B502F00F97011 /* Kitchen.m in Sources */,
 				6001EC84197B4EC300F97011 /* main.m in Sources */,
 			);
