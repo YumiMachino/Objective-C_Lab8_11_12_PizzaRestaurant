@@ -15,7 +15,6 @@
     return TRUE;
 }
 
-
 - (BOOL) kitchenShouldUpgradeOrder: (PizzaSize) size {
     return TRUE;
 }
