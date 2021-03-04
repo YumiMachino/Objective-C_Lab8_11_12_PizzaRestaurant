@@ -21,6 +21,8 @@
 
 - (void) kitchenDidMakePizza:(Pizza *)pizza {
     NSLog(@"Delicious pizza is made!");
+    /// send message to Delivery Service object
+    [self.deliveryService deliverPizza:pizza];
 }
 
 

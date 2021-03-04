@@ -9,13 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "Pizza.h"
 
-@protocol KitchenDelegate
+@protocol KitchenDelegate<NSObject>
+
 @required
 - (BOOL) kitchenShouldMakePizzaOfSize: (PizzaSize) size toppings: (NSArray *) toppings;
 @required
 - (BOOL) kitchenShouldUpgradeOrder: (PizzaSize) size;
 @optional
 - (void) kitchenDidMakePizza:(Pizza *)pizza;
+
 @end
 
 

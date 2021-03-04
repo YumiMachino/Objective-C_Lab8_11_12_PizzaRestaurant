@@ -1,5 +1,5 @@
 //
-//  SecondManager.h
+//  DeliveryCar.h
 //  PizzaRestaurant
 //
 //  Created by Yumi Machino on 2021/03/04.
@@ -7,16 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Kitchen.h"
 #import "Pizza.h"
-#import "DeliveryService.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SecondManager : NSObject <KitchenDelegate>
+@interface DeliveryCar : NSObject
 
-@property (nonatomic,weak) DeliveryService *deliveryService;
-
+- (void)deliverPizza:(Pizza *)pizza;
 
 @end
 

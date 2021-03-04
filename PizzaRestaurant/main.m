@@ -18,17 +18,26 @@ int main(int argc, const char * argv[])
     
     @autoreleasepool {
         
+        BOOL isOrdering = TRUE;
         Kitchen *restaurantKitchen = [Kitchen new];
         Manager *manager = [Manager new];
         SecondManager *secondManager = [SecondManager new];
+        DeliveryService *deliveryService = [DeliveryService new];
+        DeliveryCar *deliveryCar = [DeliveryCar new];
         
-        while (TRUE) {
+        manager.deliveryService = deliveryService;
+        secondManager.deliveryService = deliveryService;
+        deliveryService.deliveryCar = deliveryCar;
+        
+        while (isOrdering) {
             
             NSLog(@"-----------------------------");
             NSLog(@"Please select from the below:");
             NSLog(@"1. I want to customize pizza!: (ex: small ham pinappe cheese)");
             NSLog(@"2. I want a large Pepperoni pizza!");
             NSLog(@"3. I want a MeatLover pizza!");
+            NSLog(@"4. Show me description of all the pizza delivered");
+            NSLog(@"5. Quit");
             NSLog(@"-----------------------------");
             
             // Loop forever
@@ -88,6 +97,13 @@ int main(int argc, const char * argv[])
                 } else {
                     NSLog(@"not an option.");
                 }
+            } else if ([keyword isEqualToString:@"4"]) {
+                for (int i = 0; i < [[deliveryService pizzaDescription] count]; i++) {
+                    Pizza *pizza = [[deliveryService pizzaDescription] objectAtIndex:i];
+                    NSLog(@"Delivered pizza with Size: %@, Toppings: %@", [Pizza stringFromSize:[pizza size]], [pizza toppings]);
+                }
+            } else if ([keyword isEqualToString:@"5"]) {
+                isOrdering = FALSE;
             }
         }
         return 0;

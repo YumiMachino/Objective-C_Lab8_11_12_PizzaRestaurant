@@ -13,6 +13,7 @@
 
 - (Pizza *)makePizzaWithSize:(PizzaSize)size toppings:(NSArray *)toppings;
 {
+   
     Pizza *pizza;
     /// check if TRUE
     if([self.delegate kitchenShouldMakePizzaOfSize:size toppings:toppings]) {
@@ -37,10 +38,10 @@
         NSLog(@"%@ pizza with %@ is ready!", [Pizza stringFromSize: size], [pizza toppings]);
     }
  
+    if ([self.delegate respondsToSelector: @selector(kitchenDidMakePizza:)]) {
+        [self.delegate kitchenDidMakePizza:pizza];
+    }
 
-//    if ([self.delegate respondsToSelector: @selector(kitchenDidMakePizza:)]) {
-//        [self.delegate kitchenDidMakePizza:pizza];
-//    }
     
     return pizza;
 }

@@ -24,7 +24,11 @@
     return FALSE;
 }
 
-
+- (void) kitchenDidMakePizza:(Pizza *)pizza {
+    NSLog(@"Pizza is ready to be delivered!");
+    /// send message to Delivery Service object
+    [self.deliveryService deliverPizza:pizza];
+}
 
 
 @end
