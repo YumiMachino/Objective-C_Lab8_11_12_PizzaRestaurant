@@ -10,46 +10,65 @@
 
 @implementation Pizza
 
-
-- (instancetype)initWithSize: (enum Size) size andWith : (NSArray *) toppings {
-    self = [super init];
-    if (self) {
-        
-        _size = size;
-        _toppings = toppings;
-        
-    }
-    return self;
++ (instancetype) pizzaWithSize: (PizzaSize) size toppings: (NSArray *) toppings {
+    return [[Pizza alloc] initWithSize:size toppings:toppings];
 }
 
-
-// a method: returns a value of its size (small, medium or large)
-- (NSString *)returnSize {
-    switch (_size) {
-        case 0:
-            return @"Small";
-            break;
-        case 1:
-            return @"Medium";
-            break;
-        case 2:
-            return @"Large";
-        default:
-            break;
-    }
-    return @"failed";
-}
-
-+ (Pizza *)largePepperoni {
-    
-    NSMutableArray *toppingItem = [NSArray arrayWithObject:@"pepperoni"];
-    Pizza *largePepperoni = [[Pizza alloc] initWithSize:large andWith: toppingItem];
-    
++ (Pizza *) largePepperoni {
+    Pizza *largePepperoni = [Pizza pizzaWithSize:large toppings:@[@"tomato", @"sauce", @"mozzeralla", @"cheese", @"pepperonni"]];
+    NSLog(@"Large pizza with %@ is ready!", [largePepperoni toppings]);
     return largePepperoni;
 }
 
++ (Pizza *) meatLoverWithSize: (PizzaSize)size {
+    Pizza *meatLover = [Pizza pizzaWithSize:size toppings:@[@"meat"]];
+    NSLog(@"%@ pizza with %@ is ready!", [Pizza stringFromSize:size], [meatLover toppings]);
+    return meatLover;
+}
 
 
++ (PizzaSize) sizeFromString: (NSString *) strOrig {
+    PizzaSize size;
+    
+    NSString *str = strOrig.lowercaseString;
+    if ([str isEqualToString:@"small"]) {
+        size = small;
+    }
+    else if ([str isEqualToString:@"medium"]) {
+        size = medium;
+    }
+    else if ([str isEqualToString:@"large"]) {
+        size = large;
+    }
+    else {
+        size = NO;
+    }
+    return size;
+}
 
++ (NSString *) stringFromSize: (PizzaSize) size {
+    NSString *str;
+    if (size == small) {
+        str = @"small";
+    }
+    else if (size == medium) {
+        str = @"medium";
+    }
+    else if (size == large) {
+        str = @"large";
+    }
+    else {
+        str = NULL;
+    }
+    return str;
+}
+
+
+- (instancetype)initWithSize: (PizzaSize) size toppings : (NSArray *) toppings {
+    self = [super init];
+    self.size = size;
+    self.toppings = toppings;
+    return self;
+}
 
 @end

@@ -11,6 +11,8 @@
 		6001EC84197B4EC300F97011 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC83197B4EC300F97011 /* main.m */; };
 		6001EC90197B502F00F97011 /* Kitchen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC8F197B502F00F97011 /* Kitchen.m */; };
 		AE2C668A25EDAA7400DC733A /* Pizza.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2C668925EDAA7400DC733A /* Pizza.m */; };
+		AEB88E7C25F17FF400D46DC9 /* Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB88E7B25F17FF400D46DC9 /* Manager.m */; };
+		AEB88E8225F181BF00D46DC9 /* SecondManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB88E8125F181BF00D46DC9 /* SecondManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +36,10 @@
 		6001EC8F197B502F00F97011 /* Kitchen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kitchen.m; sourceTree = "<group>"; };
 		AE2C668825EDAA7400DC733A /* Pizza.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pizza.h; sourceTree = "<group>"; };
 		AE2C668925EDAA7400DC733A /* Pizza.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pizza.m; sourceTree = "<group>"; };
+		AEB88E7A25F17FF400D46DC9 /* Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Manager.h; sourceTree = "<group>"; };
+		AEB88E7B25F17FF400D46DC9 /* Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Manager.m; sourceTree = "<group>"; };
+		AEB88E8025F181BF00D46DC9 /* SecondManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondManager.h; sourceTree = "<group>"; };
+		AEB88E8125F181BF00D46DC9 /* SecondManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +57,6 @@
 		6001EC74197B4EC300F97011 = {
 			isa = PBXGroup;
 			children = (
-				AE2C668C25EDAA7900DC733A /* Pizza */,
 				6001EC82197B4EC300F97011 /* PizzaRestaurant */,
 				6001EC7F197B4EC300F97011 /* Frameworks */,
 				6001EC7E197B4EC300F97011 /* Products */,
@@ -78,8 +83,10 @@
 			isa = PBXGroup;
 			children = (
 				6001EC83197B4EC300F97011 /* main.m */,
-				6001EC8E197B502F00F97011 /* Kitchen.h */,
-				6001EC8F197B502F00F97011 /* Kitchen.m */,
+				AEB88E8425F181C400D46DC9 /* SecondManager */,
+				AEB88E7E25F17FF900D46DC9 /* Manager */,
+				AEC5F12125F0A82100A575EF /* Kitchen */,
+				AE2C668C25EDAA7900DC733A /* Pizza */,
 				6001EC85197B4EC300F97011 /* Supporting Files */,
 			);
 			path = PizzaRestaurant;
@@ -100,7 +107,33 @@
 				AE2C668925EDAA7400DC733A /* Pizza.m */,
 			);
 			name = Pizza;
-			path = PizzaRestaurant;
+			sourceTree = "<group>";
+		};
+		AEB88E7E25F17FF900D46DC9 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AEB88E7A25F17FF400D46DC9 /* Manager.h */,
+				AEB88E7B25F17FF400D46DC9 /* Manager.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		AEB88E8425F181C400D46DC9 /* SecondManager */ = {
+			isa = PBXGroup;
+			children = (
+				AEB88E8025F181BF00D46DC9 /* SecondManager.h */,
+				AEB88E8125F181BF00D46DC9 /* SecondManager.m */,
+			);
+			name = SecondManager;
+			sourceTree = "<group>";
+		};
+		AEC5F12125F0A82100A575EF /* Kitchen */ = {
+			isa = PBXGroup;
+			children = (
+				6001EC8E197B502F00F97011 /* Kitchen.h */,
+				6001EC8F197B502F00F97011 /* Kitchen.m */,
+			);
+			name = Kitchen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +164,11 @@
 			attributes = {
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Lighthouse Labs";
+				TargetAttributes = {
+					6001EC7C197B4EC300F97011 = {
+						LastSwiftMigration = 1240;
+					};
+				};
 			};
 			buildConfigurationList = 6001EC78197B4EC300F97011 /* Build configuration list for PBXProject "PizzaRestaurant" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -156,8 +194,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE2C668A25EDAA7400DC733A /* Pizza.m in Sources */,
+				AEB88E8225F181BF00D46DC9 /* SecondManager.m in Sources */,
 				6001EC90197B502F00F97011 /* Kitchen.m in Sources */,
 				6001EC84197B4EC300F97011 /* main.m in Sources */,
+				AEB88E7C25F17FF400D46DC9 /* Manager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,20 +308,27 @@
 		6001EC8C197B4EC300F97011 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PizzaRestaurant/PizzaRestaurant-Prefix.pch";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		6001EC8D197B4EC300F97011 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PizzaRestaurant/PizzaRestaurant-Prefix.pch";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

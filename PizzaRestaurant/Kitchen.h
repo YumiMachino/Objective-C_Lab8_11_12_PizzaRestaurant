@@ -9,8 +9,21 @@
 #import <Foundation/Foundation.h>
 #import "Pizza.h"
 
+@protocol KitchenDelegate
+@required
+- (BOOL) kitchenShouldMakePizzaOfSize: (PizzaSize) size toppings: (NSArray *) toppings;
+@required
+- (BOOL) kitchenShouldUpgradeOrder: (PizzaSize) size;
+@optional
+- (void) kitchenDidMakePizza:(Pizza *)pizza;
+@end
+
+
 @interface Kitchen : NSObject
 
-- (Pizza *)makePizzaWithSize:(enum Size)size toppings:(NSArray *)toppings;
-- (Pizza *) makePepperoniPizza ;
+@property (nonatomic, weak) id<KitchenDelegate> delegate;
+
+- (Pizza *)makePizzaWithSize:(PizzaSize)size toppings:(NSArray *)toppings;
+
+
 @end

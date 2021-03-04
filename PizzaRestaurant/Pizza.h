@@ -10,17 +10,27 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef enum {
+    small,
+    medium,
+    large
+} PizzaSize;
+
+
 @interface Pizza : NSObject
 
-enum Size {small, medium, large};
+@property PizzaSize size;
+@property NSArray *toppings;
 
-@property enum Size size;
-@property NSMutableArray *toppings;
 
-- (instancetype)initWithSize: (enum Size) size andWith : (NSArray *) toppings;
-
-+ (Pizza *)largePepperoni;
-- (NSString *)returnSize;
++ (instancetype) pizzaWithSize: (PizzaSize) size toppings: (NSArray *) toppings;
++ (Pizza *) largePepperoni;
++ (Pizza *) meatLoverWithSize:(PizzaSize)size;
++ (PizzaSize) sizeFromString: (NSString *) str;
++ (NSString *) stringFromSize: (PizzaSize) size;
+- (instancetype) initWithSize: (PizzaSize) size toppings: (NSArray *) toppings;
+- (PizzaSize) size;
+- (NSArray *) toppings;
 
 @end
 

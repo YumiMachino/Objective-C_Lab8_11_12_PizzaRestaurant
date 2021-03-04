@@ -11,15 +11,39 @@
 
 @implementation Kitchen
 
-- (Pizza *)makePizzaWithSize:(enum Size)size toppings:(NSArray *)toppings
+- (Pizza *)makePizzaWithSize:(PizzaSize)size toppings:(NSArray *)toppings;
 {
-    return [[Pizza alloc] initWithSize:size andWith:toppings];
-}
+    Pizza *pizza;
+    /// check if TRUE
+    if([self.delegate kitchenShouldMakePizzaOfSize:size toppings:toppings]) {
+        if ([self.delegate kitchenShouldUpgradeOrder:size]) {
+            if (size == small) {
+                pizza = [[Pizza alloc]initWithSize:medium toppings:toppings];
+                NSLog(@"%@ pizza with %@ is ready!", [Pizza stringFromSize: medium], [pizza toppings]);
+            } else if (size == medium) {
+                pizza = [[Pizza alloc]initWithSize:large toppings:toppings];
+                NSLog(@"%@ pizza with %@ is ready!", [Pizza stringFromSize: large], [pizza toppings]);
+            } else {
+                NSLog(@"No larger size than large");
+                pizza = [[Pizza alloc]initWithSize:large toppings:toppings];
+                NSLog(@"%@ with pizza %@ is ready!", [Pizza stringFromSize: large], [pizza toppings]);
+            }
+        } else {
+            pizza = [[Pizza alloc]initWithSize:size toppings:toppings];
+            NSLog(@"%@ pizza with %@ is ready!", [Pizza stringFromSize: size], [pizza toppings]);
+        }
+    } else {
+        pizza = [[Pizza alloc]initWithSize:size toppings:toppings];
+        NSLog(@"%@ pizza with %@ is ready!", [Pizza stringFromSize: size], [pizza toppings]);
+    }
+ 
 
-- (Pizza *) makePepperoniPizza {
-    return [Pizza largePepperoni];
+//    if ([self.delegate respondsToSelector: @selector(kitchenDidMakePizza:)]) {
+//        [self.delegate kitchenDidMakePizza:pizza];
+//    }
+    
+    return pizza;
 }
-
 
 
 @end
